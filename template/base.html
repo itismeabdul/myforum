@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+ 
+ <head>
+    <meta charset="utf-8">
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+  
+    
+    <style>
+        
+    #container [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+.row {
+    margin:8px;
+}
+
+#notification {
+    margin:-10px -15px 20px -15px;
+    border-bottom:0.5px solid black;
+    text-align:center;
+}
+
+#labels div{
+    border-left:1px solid black;
+    background-color:green
+    margin-top:-20px;
+    color:darkblue;
+    font-weight:"bolder";
+    font-size:13px;
+}
+
+#head{
+    box-shadow:0px 8px 25px -17px #888888;
+    border-radius:10px;
+    margin-left:-10px;
+    margin-right:-10px;
+    background-color:rgb(248,248,248);
+}
+
+#categories #headings{
+    border-bottom:0.5px solid black;
+    text-align:left;
+    
+}
+
+#body {
+    text-align : center;
+    
+}
+
+#body #content{
+    box-shadow:0px 8px 25px -17px #888888;
+    background-color:rgb(248,248,248);
+    border-radius:10px;
+    margin: 10px 0px 10px 0px;
+}
+
+#body #content .jumbotron{
+	background-color:white;
+}
+
+
+#footer #name {
+    font-size:20px;
+    color:rgba(0,0,0,0.5);
+    margin-top:-10px;
+}
+
+#footer #copyright{
+    text-align:center;
+    font-size:8px;
+    
+}
+        
+    </style>
+    
+    <title>
+    Sofrum
+    </title>
+    
+    
+ </head>
+ 
+ 
+ 
+ <body>
+     
+   <div id="container" class="col-lg-12">
+       
+       <div id="head" class="row">
+           <div class="col-lg-12">
+               <div id="notification" class="row">
+               {% block notification %}
+               	{% if signin %}
+                 	{% include 'parts/notification2.html' %}
+                   {% else %}
+                     {% include 'parts/notification.html'%}
+                   {% endif %}
+                {% endblock %}
+            
+               </div>
+               <div id="categories" class="row">
+               
+               {% block categories %}
+                 {% include 'parts/categories.html' %}
+                {% endblock %}
+                
+               </div>
+           </div>
+       </div>
+       
+       {% block body %}
+       <hr>
+       <div id="body" class="row">
+             <div id="content" class="col-xs-12">
+             
+				        <a href= "/content">
+				        <h6>content</h6>
+				        </a>
+				        
+				        <hr>
+				       
+            
+               
+             </div>
+             <hr>
+       </div>
+      {% endblock %}
+      
+       <hr>
+       <div id="footer" class=row>
+          <div id="name"><h1>Soforum</h1>
+          </div>
+           <p>
+               <div id="copyright">
+                   2020
+                   allright reserved
+               </div>
+           </p>
+       </div>
+   </div>  
+     
+ </body>
+    
+</html>
