@@ -148,21 +148,37 @@
         <a
 			  class="btn btn-link"
 			  data-toggle="collapse"
-			  href="#collapseExample"
+			  href="#commentbox"
 			  role="button"
 			  aria-expanded="false"
-			  aria-controls="collapseExample">
- 				 <h5>comment</h5>
+			  aria-controls="commentbox">
+ 				 <h4>comment</h4>
 		</a>
 	  <!--end comment button-->
 		
 <!--mainform-->		
-		<div class="collapse mt-3" id="collapseExample">
+	<div class="collapse mt-3" id="commentbox">
 		
+		{% if session %}
 	
-		<div id="editor">This is some sample content.</div>
-			
+		<div id="editor">
+			<form method='post' action='#' >
+				<textarea class="form-control"
+				placeholder="Type Comment" rows="5"></textarea>
+				
+				<button type="submit" class="btn btn-
+				default">Submit</button>
+			</form>
 		</div>
+	   
+	   {% else %}
+	   	<a href='/auth/login'>
+	   		<h5> Login </h5>
+	   		</a>
+	   		<h6 style='margin-top:-10px;' > to Comment </h6>
+	  {% endif %}
+			
+	</div>
 <!--end mainform-->
 		
 	</div>
@@ -208,15 +224,6 @@
 <!-- script -->
 
 <script>
-    ClassicEditor
-    			                .create( document.querySelector( '#editor' ) )
-                                .then( editor => {
-                                        console.log( editor );
-                                } )
-                                .catch( error => {
-                                        console.error( error );
-                                } );
-                </script>
   </script>
 <!-- end script-->
 <body>
