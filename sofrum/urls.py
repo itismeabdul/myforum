@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 import home
 import authentication
+import categories
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.url')),
     path("auth/", include('authentication.url')),
+    path('<cate>', include('categories.url'))
+    
 ]
