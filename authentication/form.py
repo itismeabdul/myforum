@@ -12,7 +12,7 @@ class signup(forms.Form):
 	
 	lastName = forms.CharField(max_length=150)
 	
-	Email = forms.EmailField()
+	email = forms.EmailField()
 	
 	userName = forms.CharField(max_length=100)
 	

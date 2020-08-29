@@ -11,7 +11,7 @@
 
 <div class="panel-heading">LOGIN</div>
 	
-	<form method='post' Action='/'> 
+	<form method='post' Action='/auth/signup/'> 
 	{% csrf_token %}
 	
 	<div class="panel-body">
@@ -43,7 +43,7 @@
 			<div class="form-group"> 
 			<label for="Password">Password
 			</label> 
-			<input type="password" class="form-control" id="Password" name='password' placeholder="Password">
+			<input type="password" class="form-control" id="PassWord" name='passWord' placeholder="Password">
 			</div>
 			
 			

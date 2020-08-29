@@ -7,12 +7,12 @@ from authentication import form
 def login(request):
 	if request.method == 'POST':
 		#handle login here
+		
 		f = form.login(request.POST)
 		
 		if f.is_bound:
-			
-			if f.is_valid:
-				return HttpResponseRedirect('/')
+			if (f.is_valid) and (f.errors == {}):
+				return HttpResponse(f.cleaned_data['userName'])
 				
 			else:
 				return HttpResponse('Error! form invalid form!')
@@ -28,13 +28,20 @@ def login(request):
 	
 #sign up	
 def signup(request):
-		if request.method=='GET':
-			return render(request,'signup.html')
+	if request.method == 'POST':
+		#handle login here
 		
-		elif request.method =='POST':
-			#handle sign up here
-			return HttpResponseRedirect('/')
+		f = form.signup(request.POST)
 		
+		if f.is_bound:
+			if (f.is_valid) and (f.errors == {}):
+				return HttpResponse(f.cleaned_data['firstName'])
+				
+			else:
+				return HttpResponse('Error! form invalid form!')
+			
 		else:
-			return HttpResponseRedirect('/')
+			return HttpResponse('Error! form empty')
 		
+	else:
+		return render(request, 'signup.html')
